@@ -16,5 +16,5 @@ This project requires the following libraries:
 
 - Adafruit BME280 Library
 
-> ![TIP]
+> [!TIP]
 > Libraries are installed automatically when opening the project in Visual Studio Code with the PlatformIO extension.
