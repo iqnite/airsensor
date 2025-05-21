@@ -1,21 +1,56 @@
 #include <Arduino.h>
+#include <Adafruit_BME280.h>
+#include <U8g2lib.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#define SEA_LEVEL_PRESSURE_HPA 1013.25
+
+void spinner();
+
+Adafruit_BME280 bme;
 
 void setup()
 {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(9600);
+  pinMode(8, OUTPUT);
 }
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
+  static bool bmeConnected = false;
+
+  delay(500);
+
+  if (!bmeConnected)
+  {
+    bmeConnected = bme.begin(0x76);
+    spinner();
+    return;
+  }
+
+  const float temperature = bme.readTemperature();
+  const float pressure = bme.readPressure();
+  const float humidity = bme.readHumidity();
+  const float altitude = bme.readAltitude(SEA_LEVEL_PRESSURE_HPA);
+
+  Serial.print("Temperature = ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+  Serial.print("Pressure = ");
+  Serial.print(pressure / 100.0F);
+  Serial.println(" hPa");
+  Serial.print("Humidity = ");
+  Serial.print(humidity);
+  Serial.println(" %");
+  Serial.print("Approx. Altitude = ");
+  Serial.print(altitude);
+  Serial.println(" m");
 }
 
-// put function definitions here:
-int myFunction(int x, int y)
+void spinner()
 {
-  return x + y;
+  static int i = 0;
+  static const char *spinnerChars = "|/-\\";
+  Serial.print("\r");
+  Serial.print("Connecting to BME280 ");
+  Serial.print(spinnerChars[i++ % 4]);
 }

@@ -16,5 +16,5 @@ This project requires the following libraries:
 - BME280 by Adafruit
 - U8g2 by Oliver
 
-> [!TIP]
-> Libraries are installed automatically when opening the project in Visual Studio Code with the PlatformIO extension. See [`platformio.ini`](platformio.ini) for details.
+> [!IMPORTANT]
+> Besides the libraries, additional configuration steps are required in order to upload the program to the ESP32. The [`platformio.ini`](platformio.ini) file sets everything up automatically if the project is opened in **Visual Studio Code** with the **PlatformIO** extension installed.
