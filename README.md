@@ -2,19 +2,19 @@
 
 ## Hardware
 
-### ESP32 C3 Super Mini
+The following hardware is being used in this project:
 
-![Pinout](docs/image.png)
-
-### BME280
-
-[Bosch Sensor API](https://github.com/boschsensortec/BME280_SensorAPI)
+- ESP32 C3 Super Mini
+    ![Pinout](docs/image.png)
+- [BME280](https://github.com/boschsensortec/BME280_SensorAPI)
+- I2C Display
 
 ## Libraries
 
 This project requires the following libraries:
 
-- Adafruit BME280 Library
+- BME280 by Adafruit
+- U8g2 by Oliver
 
 > [!TIP]
-> Libraries are installed automatically when opening the project in Visual Studio Code with the PlatformIO extension.
+> Libraries are installed automatically when opening the project in Visual Studio Code with the PlatformIO extension. See [`platformio.ini`](platformio.ini) for details.
