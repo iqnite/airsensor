@@ -1,15 +1,17 @@
 # Air Sensor
 
-## Hardware
+## Prerequisites
+
+### Hardware
 
 The following hardware is being used in this project:
 
-- ESP32 C3 Super Mini
-    ![Pinout](docs/image.png)
-- [BME280](https://github.com/boschsensortec/BME280_SensorAPI)
+- ESP32 C3 Super Mini ([Drivers](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads))
+  ![Pinout](docs/image.png)
+- BME280
 - I2C Display
 
-## Libraries
+### Libraries
 
 This project requires the following libraries:
 
