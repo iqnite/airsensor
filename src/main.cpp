@@ -1,3 +1,5 @@
+#define VERSION "0.1.0-dev"
+
 #include <Arduino.h>
 #include <Adafruit_BME280.h>
 #include <U8g2lib.h>
@@ -5,13 +7,14 @@
 #define SEA_LEVEL_PRESSURE_HPA 1013.25
 
 void spinner();
+void toggle(int pin);
 
 Adafruit_BME280 bme;
 
 void setup()
 {
   Serial.begin(9600);
-  pinMode(8, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop()
@@ -19,6 +22,8 @@ void loop()
   static bool bmeConnected = false;
 
   delay(500);
+
+  toggle(LED_BUILTIN);
 
   if (!bmeConnected)
   {
@@ -51,6 +56,14 @@ void spinner()
   static int i = 0;
   static const char *spinnerChars = "|/-\\";
   Serial.print("\r");
-  Serial.print("Connecting to BME280 ");
+  Serial.print(VERSION);
+  Serial.print(" | Connecting to sensor ");
   Serial.print(spinnerChars[i++ % 4]);
+}
+
+void toggle(int pin)
+{
+  static bool state = false;
+  state = !state;
+  digitalWrite(pin, state ? HIGH : LOW);
 }
