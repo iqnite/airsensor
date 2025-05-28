@@ -20,3 +20,10 @@ This project requires the following libraries:
 
 > [!IMPORTANT]
 > Besides the libraries, additional configuration steps are required in order to upload the program to the ESP32. The [`platformio.ini`](platformio.ini) file sets everything up automatically if the project is opened in [**PlatformIO for Visual Studio Code**](https://platformio.org/install/ide?install=vscode).
+
+## Programming
+
+1. In Visual Studio Code, click on *PlatformIO: Upload*
+2. On the ESP32, press and hold the *BOOT* button
+3. Press and release the *RST* button
+4. Once the upload is finished, release the *BOOT* button
