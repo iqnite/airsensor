@@ -19,4 +19,4 @@ This project requires the following libraries:
 - U8g2 by Oliver
 
 > [!IMPORTANT]
-> Besides the libraries, additional configuration steps are required in order to upload the program to the ESP32. The [`platformio.ini`](platformio.ini) file sets everything up automatically if the project is opened in **Visual Studio Code** with the **PlatformIO** extension installed.
+> Besides the libraries, additional configuration steps are required in order to upload the program to the ESP32. The [`platformio.ini`](platformio.ini) file sets everything up automatically if the project is opened in [**PlatformIO for Visual Studio Code**](https://platformio.org/install/ide?install=vscode).
