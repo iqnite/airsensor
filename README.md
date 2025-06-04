@@ -1,5 +1,7 @@
 # Air Sensor
 
+This small project allows to use an ESP32 to show temperature, humidity, and air pressure data on a display and a web server.
+
 ## Prerequisites
 
 ### Hardware
