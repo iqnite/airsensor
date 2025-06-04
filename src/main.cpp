@@ -1,4 +1,4 @@
-#define VERSION "0.1.0-development.1j"
+#define VERSION "0.1.0-development.1l"
 
 #define SEA_LEVEL_PRESSURE_HPA 1013.25
 #define STATUS_LED 8
