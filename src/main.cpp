@@ -1,4 +1,4 @@
-#define VERSION "0.1.0-development.2"
+#define VERSION "0.1.0-development.3"
 
 #define SEA_LEVEL_PRESSURE_HPA 1013.25
 #define STATUS_LED 8
@@ -24,8 +24,7 @@ U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/U8X8_PIN_NONE);
 void setup()
 {
   Serial.begin(9600);
-  while (!Serial)
-    ;
+
   pinMode(STATUS_LED, OUTPUT);
   u8g2.begin();
   u8g2.setFont(u8g2_font_ncenB08_tr);
@@ -37,12 +36,6 @@ void loop()
   static bool bmeConnected = false;
 
   toggle(STATUS_LED);
-
-  u8g2.clearBuffer();
-
-  u8g2.setCursor(0, 10);
-  u8g2.print("HTL AirSensor ");
-  u8g2.print(VERSION);
 
   delay(2000);
 
@@ -79,6 +72,11 @@ void loop()
   Serial.println("\t m");
 
   // Display the data on the display
+  u8g2.clearBuffer();
+
+  u8g2.setCursor(0, 10);
+  u8g2.print("HTL AirSensor ");
+  u8g2.print(VERSION);
 
   u8g2.setCursor(NAME_COL, START_ROW);
   u8g2.print("TEMP:");
