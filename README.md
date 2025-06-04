@@ -8,8 +8,8 @@ The following hardware is being used in this project:
 
 - ESP32 C3 Super Mini ([Drivers](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads))
   ![Pinout](docs/esp-pinout.png)
-- BME280
-- I2C Display
+- BME280 Sensor
+- SH1106 I2C Display
 
 ### Libraries
 
