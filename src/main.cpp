@@ -1,4 +1,4 @@
-#define VERSION "0.1.0-development.1l"
+#define VERSION "0.1.0-development.1m"
 
 #define SEA_LEVEL_PRESSURE_HPA 1013.25
 #define STATUS_LED 8
@@ -52,18 +52,18 @@ void loop()
   const float humidity = bme.readHumidity();
   const float altitude = bme.readAltitude(SEA_LEVEL_PRESSURE_HPA);
 
-  Serial.print("Temperature = ");
+  Serial.print("Temperature \t");
   Serial.print(temperature);
-  Serial.println(" °C");
-  Serial.print("Pressure = ");
+  Serial.println("\t °C");
+  Serial.print("Pressure \t");
   Serial.print(pressure / 100.0F);
-  Serial.println(" hPa");
-  Serial.print("Humidity = ");
+  Serial.println("\t hPa");
+  Serial.print("Humidity \t");
   Serial.print(humidity);
-  Serial.println(" %");
-  Serial.print("Approx. Altitude = ");
+  Serial.println("\t %");
+  Serial.print("Altitude \t");
   Serial.print(altitude);
-  Serial.println(" m");
+  Serial.println("\t m");
 }
 
 void spinner()
