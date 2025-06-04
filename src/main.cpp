@@ -1,29 +1,44 @@
-#define VERSION "0.1.0-dev"
+#define VERSION "0.1.0-development.1j"
+
+#define SEA_LEVEL_PRESSURE_HPA 1013.25
+#define STATUS_LED 8
 
 #include <Arduino.h>
 #include <Adafruit_BME280.h>
 #include <U8g2lib.h>
 
-#define SEA_LEVEL_PRESSURE_HPA 1013.25
-
 void spinner();
 void toggle(int pin);
 
+// Sensor
 Adafruit_BME280 bme;
+
+// Display
+U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/U8X8_PIN_NONE);
 
 void setup()
 {
   Serial.begin(9600);
-  pinMode(LED_BUILTIN, OUTPUT);
+  while (!Serial)
+    ;
+  pinMode(STATUS_LED, OUTPUT);
+  u8g2.begin();
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_ncenB08_tr);
+  u8g2.setFontMode(1); // Enable font mode for text rendering
+  u8g2.setCursor(0, 10);
+  u8g2.print("HTL AirSensor ");
+  u8g2.print(VERSION);
+  u8g2.sendBuffer();
 }
 
 void loop()
 {
   static bool bmeConnected = false;
 
-  delay(500);
+  delay(100);
 
-  toggle(LED_BUILTIN);
+  toggle(STATUS_LED);
 
   if (!bmeConnected)
   {
