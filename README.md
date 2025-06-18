@@ -23,6 +23,12 @@ This project requires the following libraries:
 > [!IMPORTANT]
 > Besides the libraries, additional configuration steps are required in order to upload the program to the ESP32. The [`platformio.ini`](platformio.ini) file automatically sets everything up if the project is opened in [**PlatformIO for Visual Studio Code**](https://platformio.org/install/ide?install=vscode).
 
+## Circuit
+
+![Schematic circuit diagram](docs/circuit.png)
+
+[PCB](/pcb/Project%20Outputs%20for%20pcb/altium-printoutsV1.6.PDF)
+
 ## Programming
 
 To upload the program to the ESP32, click on _Upload_ in the IDE.

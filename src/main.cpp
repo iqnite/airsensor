@@ -1,7 +1,6 @@
-#define VERSION "0.1.0-development.3"
+#define VERSION "1.0"
 
 #define SEA_LEVEL_PRESSURE_HPA 1013.25
-#define STATUS_LED 8
 #define DEGREE "" // 0xB0
 #define START_ROW 30
 #define NAME_COL 0
@@ -13,7 +12,6 @@
 #include <U8g2lib.h>
 
 void spinner();
-void toggle(int pin);
 
 // Sensor
 Adafruit_BME280 bme;
@@ -25,7 +23,6 @@ void setup()
 {
   Serial.begin(9600);
 
-  pinMode(STATUS_LED, OUTPUT);
   u8g2.begin();
   u8g2.setFont(u8g2_font_ncenB08_tr);
   u8g2.setFontMode(1); // Enable font mode for text rendering
@@ -34,8 +31,6 @@ void setup()
 void loop()
 {
   static bool bmeConnected = false;
-
-  toggle(STATUS_LED);
 
   delay(2000);
 
@@ -118,11 +113,4 @@ void spinner()
   Serial.print(VERSION);
   Serial.print(" | Connecting to sensor ");
   Serial.print(spinnerChars[i++ % 4]);
-}
-
-void toggle(int pin)
-{
-  static bool state = false;
-  state = !state;
-  digitalWrite(pin, state ? HIGH : LOW);
 }
